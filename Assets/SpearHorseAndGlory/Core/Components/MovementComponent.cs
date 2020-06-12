@@ -6,7 +6,7 @@ using SpearHorseAndGlory.EventBusSystem;
 namespace SpearHorseAndGlory.Components
 {
     [RequireComponent(typeof(Rigidbody))]
-    [AddComponentMenu("SpearHorseAndGlory/MainComponent/Movement")]
+    [AddComponentMenu("SpearHorseAndGlory/MainComponent/MovementComponent")]
     public class MovementComponent : MonoBehaviour
     {
         private Rigidbody _rigidbody;
@@ -17,6 +17,7 @@ namespace SpearHorseAndGlory.Components
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _rigidbody.useGravity = false;
             _self = this.gameObject.transform;
 
             EventBus.Instance.RegisterListnerEvent(typeof(MovementDataEvent), new EventListner<MovementDataEvent>(MovementAction, true));
@@ -30,14 +31,9 @@ namespace SpearHorseAndGlory.Components
             }
         }
 
-        private void SetupRigidbody()
-        {
-            _rigidbody.useGravity = false;
-        }
-
         private void Movement()
         {
-            _rigidbody.velocity = _self.right * moveSpeed;
+            _rigidbody.velocity = _self.forward * moveSpeed;
         }
 
         private void MovementAction(MovementDataEvent movementComponent)

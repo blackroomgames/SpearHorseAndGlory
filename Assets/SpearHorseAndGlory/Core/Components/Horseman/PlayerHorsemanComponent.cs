@@ -17,7 +17,7 @@ namespace SpearHorseAndGlory.Components
 
         protected override void CombatMove()
         {
-            base.CombatMove();
+            if (!isCombat) return;
             var map = spearSetting.CombatSpearRotation(spear, _upForceTimer, _currentAngle);
             _upForceTimer = map.Item1;
             _currentAngle = map.Item2;

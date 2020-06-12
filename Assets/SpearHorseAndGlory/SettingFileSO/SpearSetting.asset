@@ -16,5 +16,8 @@ MonoBehaviour:
   startRotation: {x: -50, y: 0, z: 0}
   combatPosition: {x: 0.45, y: 1.8, z: 0.1}
   frequency: 5
-  magnitude: 0.15
-  aimSpeed: 3
+  magnitude: 0.17
+  aimSpeed: 1.25
+  upForce: 0.5
+  downForce: 0.6
+  _currentAngle: 0

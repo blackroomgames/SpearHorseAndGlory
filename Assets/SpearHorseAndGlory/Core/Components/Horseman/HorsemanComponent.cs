@@ -17,7 +17,7 @@ namespace SpearHorseAndGlory.Components
         private Transform _riderPoint;
         private bool _isIdle;
 
-        [SerializeField]protected Transform spear;
+        protected Transform spear;
         protected bool isCombat;
 
         private void Start()
@@ -44,7 +44,8 @@ namespace SpearHorseAndGlory.Components
             else
             {
                 CombatMove();
-            }        }
+            }
+        }
 
         protected virtual void SetupComponentInEventBus()
         {
@@ -67,7 +68,7 @@ namespace SpearHorseAndGlory.Components
 
         protected virtual void CombatMove()
         {
-            if (!isCombat) return;
+            
         }
 
         private IEnumerator HorsemanTakeAim()
